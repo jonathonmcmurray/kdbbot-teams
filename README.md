@@ -1,11 +1,11 @@
 # kdbbot-teams
 A framework for a KDB back end to a MS Teams bot
 
-kdbbot-teams is a plugin-based framework for interacting with MS Teams from KDB, adapted from [kdbslack](https://github.com/jonathonmcmurray/kdbslack). Functionality is added to the framework by way og [auto plugins](#auto-plugins). In addition, there is "worker" functionality that can be leveraged by plugins.
+kdbbot-teams is a plugin-based framework for interacting with MS Teams from KDB, adapted from [kdbslack](https://github.com/jonathonmcmurray/kdbslack). Functionality is added to the framework by way of [auto plugins](#auto-plugins). In addition, there is "worker" functionality that can be leveraged by plugins.
 
 ## Starting kdbbot
 
-In order to start kdbbot, clone this repo & run `q kdbbot.q` from the root directory of this repo. (You will also need to update some config files). There are a number of command line options you can/should specify when running also:
+In order to start kdbbot, clone this repo & run `q kdbbot.q` from the root directory of this repo. (You will also need to update some config files).
 
 ## Plugins
 
