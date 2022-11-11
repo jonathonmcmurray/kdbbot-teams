@@ -70,8 +70,7 @@
 
 .lfm.scrobbles:{[s;e]                                                                           / [start timestamp;end timestamp] get scrobbles for all users
   .lg.o"Requesting scrobbles for each user between ",string[s]," and ",string e;
-  u:`$exec id from .slack.userlist;                                                             / get list of user ids from slack
-  res:raze .lfm.h.scrobbles[s;e]./:exec(name,'username)from .lfm.users where uid in u;          / get top chart for passed param for each valid user
+  res:raze .lfm.h.scrobbles[s;e]./:exec(name,'username)from .lfm.users;                         / get top chart for passed param for each valid user
   .lg.o"Returning top scrobbles for each user between ",string[s]," and ",string e;
   :res;                                                                                         / return raw data
  };
@@ -96,10 +95,8 @@
  };
 
 .lfm.s.stats:{[s;e;t;data]                                                                      / [start timestamp;end timestamp;data] generate statistics from raw chart data
-  u:`$exec id from .slack.userlist;                                                             / get list of user ids from slack
   sts:([]stat:();size:());
   sts,:(`$"Registered users";count .lfm.users);                                                 / count number of valid users
-  sts,:(`$"Valid users";count select from .lfm.users where uid in u);                           / count number of valid users
   sts,:(`$"Unique scrobblers";count distinct data`user);                                        / get number of users to scrobble over charting period
   sts,:(`Scrobbles;count data);                                                                 / get total scrobbles over period
   sts,:(`Artists;count distinct data`artist);                                                   / get total scrobbles over period
@@ -107,7 +104,7 @@
   :sts;                                                                                         / return stats
  };
 
-.lfm.c.format:{[t;data]t," Chart\n\n",.fmt.t .lfm.h.trim data};                                 / [type;data] format chart for slack
+.lfm.c.format:{[t;data]t," Chart\n\n",.fmt.t .lfm.h.trim data};                                 / [type;data] format chart for teams
 
 .lfm.h.trim:{[data]                                                                             / [data] trim columns
   d:(cols[data]inter key d)#d:`artist`track`album!30 50 40;                                     / custom column widths
@@ -126,7 +123,7 @@
   .lg.o"Producing charts for ",", "sv string .lfm.o.charts;
   fm:.lfm.o.charts!.lfm.o.format[s;e;data]'[.lfm.o.charts];                                     / get top charts for passed params
   .lg.o"Returning formatted charts and tables";
-  :{"```",x,"```"}each fm;                                                                      / wrap in code block to preserve formatting in slack
+  :{"```",x,"```"}each fm;                                                                      / wrap in code block to preserve formatting in teams
  };
 
 .lfm.save:{[s;e;t;c]                                                                            / [start timestamp;end timestamp;chart type;chart] save chart to disk
