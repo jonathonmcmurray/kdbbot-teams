@@ -7,7 +7,7 @@ tm:{
 
 cb:{[m]
   .lg.i "Daily status report complete, sending";                                    //alert report has been received to callback
-  .teams.msg[.teams.hooks`kdbgeneral;"Homer Status - ",string .z.d;m];              //send report to Teams
+  .teams.msg[.teams.hooks`kdbgeneral;m];                                            //send report to Teams
  }
 
 \d .

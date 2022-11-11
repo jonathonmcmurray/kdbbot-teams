@@ -6,9 +6,8 @@ postChart:{[s;e]                                                                
   if[0=count .lfm.users;:.lg.w"No last.fm usernames provuded, chart timer aborted"];            / exit if no cached usernames
   if[0=count .lfm.o.charts;:.lg.w"No charts currently specified in .lfm.o.charts"];
   c:chart[s;e];                                                                                 / get charts
-  .lg.o"Posting last.fm charts to slack as lastfmbot in ",.lfm.channel;
-  /.slack.postase[;.slack.chanlist .lfm.channel;"lastfmbot";":lastfm:"]each value c;             / post charts as lastfmbot
-  .teams.msg[.teams.hooks`qradio;"qRadio Chart"] each value c;
+  .lg.o"Posting last.fm charts to Teams as lastfmbot";
+  .teams.msg[.teams.hooks`qradio] "\n" sv value c;
  };
 
 tm:{postChart .(.z.d-7 0)+10:00};                                                               / post chart for previous 7 days

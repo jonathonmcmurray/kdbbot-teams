@@ -123,7 +123,7 @@
   .lg.o"Producing charts for ",", "sv string .lfm.o.charts;
   fm:.lfm.o.charts!.lfm.o.format[s;e;data]'[.lfm.o.charts];                                     / get top charts for passed params
   .lg.o"Returning formatted charts and tables";
-  :{"```",x,"```"}each fm;                                                                      / wrap in code block to preserve formatting in teams
+  :{"```\n",x,"\n```\n"}each fm;                                                                / wrap in code block to preserve formatting in teams
  };
 
 .lfm.save:{[s;e;t;c]                                                                            / [start timestamp;end timestamp;chart type;chart] save chart to disk

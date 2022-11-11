@@ -10,7 +10,7 @@ tm:{
   if[not .ip.ip~n:getip[];
      if[not validate n;.lg.w"invalid ip received:\n",n;:()];                        //return early if not a valid IP
      .ip.ip:n;                                                                      //update stored IP address
-     .teams.msg[.teams.hooks`kdbgeneral;"New IP address";"New IP address detected: ",n]; //send msg to teams
+     .teams.msg[.teams.hooks`kdbgeneral;"New IP address detected: ",n];             //send msg to teams
     ];
  }
 
