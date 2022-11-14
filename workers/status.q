@@ -28,6 +28,6 @@ if[0<count t;
   ];
 
 m,:"```";
-.worker.ret[m];
+.worker.ret["\n" sv m];
 
 exit 0;
