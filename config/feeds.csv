@@ -1,0 +1,5 @@
+type,url,name
+stack,https://api.stackexchange.com/2.2/questions?order=desc&sort=creation&tagged=kdb&site=stackoverflow,StackOverflow
+kx,https://community.kx.com/btwke96422/rss/board?board.id=kdb-q-questions,KX Community (KX Tech)
+kx,https://community.kx.com/btwke96422/rss/board?board.id=q-bies,KX Community (Q-bies)
+kx,https://community.kx.com/btwke96422/rss/board?board.id=kdbq,KX Community (kdb+ and q)

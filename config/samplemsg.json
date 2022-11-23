@@ -1,0 +1,39 @@
+{
+    "type": "message",
+    "attachments": [
+        {
+        "contentType": "application/vnd.microsoft.card.adaptive",
+        "content": {
+            "type": "AdaptiveCard",
+            "body": [
+                {
+                    "type": "TextBlock",
+                    "wrap":true,
+                    "text": "MSG_PLACEHOLDER\n\nAnswerers: <at>USER_1</at>, <at>USER_2</at>"
+                }
+            ],
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "version": "1.0",
+            "msteams": {
+                "entities": [
+                    {
+                        "type": "mention",
+                        "text": "<at>USER_1</at>",
+                        "mentioned": {
+                          "id": "USER_1_PLACEHOLDER",
+                          "name": "USER_1_PLACEHOLDER"
+                        }
+                      },
+                      {
+                        "type": "mention",
+                        "text": "<at>USER_2</at>",
+                        "mentioned": {
+                          "id": "USER_2_PLACEHOLDER",
+                          "name": "USER_2_PLACEHOLDER"
+                        }
+                      }
+                ]
+            }
+        }
+    }]
+}
