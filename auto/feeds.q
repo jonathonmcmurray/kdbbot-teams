@@ -59,4 +59,4 @@ msg:{msg0[x;;z] each y}
 \d .
 
 // add timer to check every 5 minutes
-/.timer.add[`.feeds.tm;enlist .feeds.cfg;00:05:00;1b];
+.timer.add[`.feeds.tm;enlist .feeds.cfg;00:05:00;1b];
